@@ -1,0 +1,14 @@
+tunnel: 00000000-0000-0000-0000-000000000000
+credentials-file: /Users/username/.cloudflared/00000000-0000-0000-0000-000000000000.json
+
+ingress:
+  - hostname: mira.example.com
+    service: http://192.168.31.55:8090
+    originRequest:
+      connectTimeout: 30s
+      keepAliveTimeout: 10m
+      keepAliveConnections: 100
+      tcpKeepAlive: 30s
+      http2Origin: false
+      disableChunkedEncoding: false
+  - service: http_status:404
